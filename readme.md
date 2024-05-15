@@ -1,6 +1,6 @@
 # Meu Site Estático com Nginx e Docker
 
-Este projeto demonstra como utilizar o web server Nginx e Docker para criar um servidor que publica uma página web estática com arquivos HTML, CSS e JS.
+Este projeto demonstra como utilizar o web server Nginx e Docker para criar um servidor que publica uma página web estática com arquivos HTML, CSS e JS com certificado SSL gratuito.
 
 
 ## Pré-requisitos

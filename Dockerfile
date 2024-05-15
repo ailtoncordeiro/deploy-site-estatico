@@ -2,10 +2,13 @@
 FROM nginx:alpine
 
 # Copiar os arquivos do projeto para o diretório padrão do Nginx
-COPY . /usr/share/nginx/html
+COPY ./index.html /usr/share/nginx/html
+COPY ./css /usr/share/nginx/html/css
+COPY ./js /usr/share/nginx/html/js
 
 # Copiar o arquivo de configuração do nginx
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
+COPY ./.nginx/nginx.conf /etc/nginx/nginx.conf
 
-# Expor a porta 80
+# Expor a porta 80 e 443
 EXPOSE 80
+EXPOSE 443
