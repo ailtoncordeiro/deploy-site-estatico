@@ -10,7 +10,7 @@ services:
       - meusite
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbots
+      - ./data/certbot/www:/var/www/certbot
 
   certbot:
     image: certbot/certbot
