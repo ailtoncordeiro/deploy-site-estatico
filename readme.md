@@ -16,7 +16,7 @@ Este projeto demonstra como utilizar o web server Nginx e Docker para criar um s
 ### 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/seu-usuario/meu-site.git
+git clone https://github.com/ailtoncordeiro/deploy-site-estatico.git
 cd meu-site
 ```
 
@@ -25,6 +25,13 @@ cd meu-site
 ```bash
 docker compose up -d
 ```
+
+Se fizer alguma alteração nos arquivos e precisar realizar um novo build na imagem Docker utilize o comando:
+
+```bash
+docker compose up -d --build
+```
+
 
 ## Licença
 
