@@ -20,30 +20,45 @@ git clone https://github.com/ailtoncordeiro/deploy-site-estatico.git
 cd deploy-site-estatico
 ```
 
-### 1. Subir o serviço do Nginx
+### 2. Subir o serviço do Nginx
+
+***OBS: Não esqueça de antes editar o arquivo de configuração do NGINX para o seu domínio.***
 
 ```bash
 docker compose up -d web
 ```
 
-### 2. Criar o certificado SSL
+### 3. Criar o certificado SSL
 
 execute o comando abaixo e siga as instruções que irão surgir.
 
 ```bash
-docker compose run --rm certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d tutorial.ailtoncordeiro.dev.br
+docker compose run --rm certbot certonly --webroot --webroot-path /var/www/certbot/ -d [domain-name]
 ```
+
+### 4. Editar arquivo de configuração do Nginx
+
+No arquivo app.conf que está no diretório .nginx. Descomente a parte referente ao HTTPS e execute o comando
 
 ```bash
-docker compose up -d
+docker compose up -d web --build
 ```
 
-Se fizer alguma alteração nos arquivos e precisar realizar um novo build na imagem Docker utilize o comando:
+###  5. Renovar o certificado
+
+O certificado emitido pela LetsEncrypt tem validade de 90 dias, para renovar o certificado basta executar o comando:
 
 ```bash
-docker compose up -d --build
+docker compose run --rm certbot renew
 ```
 
+Você pode adicionar esse comando no cron para executar periodicamente
+
+***Após renovar o certificado é necessário regarregar o Nginx***
+
+```bash
+docker compose exec web nginx -s reload
+```
 
 ## Licença
 
