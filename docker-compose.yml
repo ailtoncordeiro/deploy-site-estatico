@@ -1,0 +1,14 @@
+services:
+  web:
+    build: .
+    image: meusite:lastest
+    container_name: meu-site
+    ports:
+      - 80:80
+      - 443:443
+    networks:
+      - meusite
+
+networks: 
+  meusite:
+    name: meusite
