@@ -17,10 +17,22 @@ Este projeto demonstra como utilizar o web server Nginx e Docker para criar um s
 
 ```bash
 git clone https://github.com/ailtoncordeiro/deploy-site-estatico.git
-cd meu-site
+cd deploy-site-estatico
 ```
 
-### 2. Criar o container
+### 1. Subir o serviço do Nginx
+
+```bash
+docker compose up -d web
+```
+
+### 2. Criar o certificado SSL
+
+execute o comando abaixo e siga as instruções que irão surgir.
+
+```bash
+docker compose run --rm certbot certonly --webroot --webroot-path /var/www/certbot/ --dry-run -d tutorial.ailtoncordeiro.dev.br
+```
 
 ```bash
 docker compose up -d
